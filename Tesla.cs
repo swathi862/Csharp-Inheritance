@@ -2,8 +2,11 @@ using System;
 
 namespace garys_garage {
 
-    public class Tesla : Vehicle {  // Electric car
+    public class Tesla : IVehicle, IElectricPowered {  // Electric car
         public double BatteryKWh { get; set; }
+        public string MainColor { get; set; }
+        public string MaximumOccupancy { get; set; }
+        
         public void ChargeBattery () {
             Console.WriteLine($"Your {MainColor} Tesla is now charged to {BatteryKWh}Kwh.");
          }

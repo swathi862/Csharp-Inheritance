@@ -2,21 +2,15 @@ using System;
 
 namespace garys_garage {
 
-    public class Vehicle {
+    public interface IVehicle {
         public string MainColor { get; set; }
         public string MaximumOccupancy { get; set; }
 
-        public virtual void Drive(){
-            Console.WriteLine("Vroooooom!");
-        }
+        public void Drive();
 
-        public virtual void Turn(string direction){
-            Console.WriteLine($"The {MainColor} vehicle carefully turns {direction}.");
-        }
+        public void Turn(string direction);
 
-        public virtual void Stop(){
-            Console.WriteLine($"The {MainColor} vehicle gently rolls to a stop.");
-        }
+        public void Stop();
     }
     
 

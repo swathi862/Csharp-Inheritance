@@ -27,11 +27,24 @@ namespace garys_garage
             superHugeTruck.MaximumOccupancy = "5";
             superHugeTruck.FuelCapacity = 40.5;
 
-            List<Vehicle> garage = new List<Vehicle>();
+            Prius myPrius = new Prius();
+            myPrius.MainColor = "Gray";
+            myPrius.FuelCapacity = 100000;
+            myPrius.MaximumOccupancy = "5";
+
+            List<IVehicle> garage = new List<IVehicle>();
             garage.Add(myMotorcycle);
             garage.Add(superHugeTruck);
             garage.Add(fancyCar);
             garage.Add(personalJet);
+
+            List<IElectricPowered> electricVehicles = new List<IElectricPowered>(){fancyCar, myMotorcycle, myPrius};
+
+            electricVehicles.ForEach(ev => ev.ChargeBattery());
+
+            List<IGasPowered> gasVehicles = new List<IGasPowered>(){superHugeTruck, personalJet, myPrius};
+
+            gasVehicles.ForEach(gv => gv.RefuelTank());
 
             personalJet.Drive();
             personalJet.Turn("right");
